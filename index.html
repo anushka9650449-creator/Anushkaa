@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anushka's Creative Corner 🎨</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fffaf5;
+    color: #51445f;
+    line-height: 1.7;
+}
+
+:root {
+    --lavender: #e6dcfa;
+    --pink: #fbdce8;
+    --peach: #ffdfca;
+    --mint: #d9f1e5;
+    --purple: #8b70b5;
+}
+
+/* NAVIGATION */
+header {
+    background: #fffaf5;
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px #d8c9df55;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #51445f;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #c47ca4;
+}
+
+/* COMMON SECTIONS */
+section {
+    padding: 80px 8%;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--purple);
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #81748c;
+    margin-bottom: 40px;
+}
+
+/* HOME */
+#home {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f0e8ff, #ffe8ee, #fff0df);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-content {
+    max-width: 800px;
+    animation: fadeIn 1.2s ease;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    color: #795b9e;
+    margin: 15px 0;
+}
+
+.home-content h2 {
+    color: #bd819f;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.home-content p {
+    font-size: 17px;
+}
+
+.small-heading {
+    color: #a17cbd;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.home-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 12px 30px;
+    background: #a88bc8;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background: #8564ad;
+    transform: translateY(-4px);
+}
+
+.decor {
+    position: absolute;
+    font-size: 35px;
+    animation: float 4s infinite ease-in-out;
+}
+
+.one { top: 15%; left: 12%; }
+.two { top: 20%; right: 12%; animation-delay: 1s; }
+.three { bottom: 12%; left: 15%; animation-delay: 2s; }
+.four { bottom: 15%; right: 15%; animation-delay: 1.5s; }
+
+/* HOBBIES */
+#hobbies {
+    background: #fffaf5;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    padding: 30px 25px;
+    border-radius: 22px;
+    text-align: center;
+    transition: 0.35s;
+    box-shadow: 0 5px 18px #8b70b522;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 12px 25px #8b70b544;
+}
+
+.hobby-card:nth-child(1) {
+    background: var(--lavender);
+}
+
+.hobby-card:nth-child(2) {
+    background: var(--pink);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: #785d96;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+/* INTERESTS */
+#interests {
+    background: linear-gradient(135deg, #f0f9f2, #fff0f5);
+}
+
+.interest-card:nth-child(1) {
+    background: var(--peach);
+}
+
+.interest-card:nth-child(2) {
+    background: var(--mint);
+}
+
+.interest-card h3 {
+    color: #6e8d79;
+}
+
+/* CONTACT */
+#contact {
+    background: linear-gradient(135deg, #f3eaff, #ffeaf1);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.contact-info,
+.contact-form {
+    background: white;
+    padding: 32px;
+    border-radius: 22px;
+    box-shadow: 0 5px 20px #8b70b522;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    color: var(--purple);
+    margin-bottom: 18px;
+    font-size: 23px;
+}
+
+.contact-info p {
+    margin-bottom: 16px;
+}
+
+.contact-info a {
+    color: #936da9;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #e3d5ef;
+    border-radius: 12px;
+    outline: none;
+    font: inherit;
+    background: #fffcff;
+    color: #51445f;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #a88bc8;
+    box-shadow: 0 0 7px #e6dcfa;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #a88bc8;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #8564ad;
+    transform: translateY(-3px);
+}
+
+#formMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #e9def7;
+    color: #69547f;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .home-content h1 {
+        font-size: 35px;
+    }
+
+    .home-content h2 {
+        font-size: 20px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 420px) {
+    .logo {
+        font-size: 19px;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    .home-content h1 {
+        font-size: 30px;
+    }
+
+    .decor {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION MENU -->
+<header>
+    <div class="logo">🎨 Anushka's Creative Corner</div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HOME / INTRO SECTION -->
+<section id="home">
+
+    <span class="decor one">🌸</span>
+    <span class="decor two">✨</span>
+    <span class="decor three">🎨</span>
+    <span class="decor four">🦋</span>
+
+    <div class="home-content">
+
+        <div class="small-heading">
+            Welcome to My Creative World!
+        </div>
+
+        <h1>Hi, I'm Anushka! 💜</h1>
+
+        <h2>Dream • Create • Inspire</h2>
+
+        <p>
+            My name is Anushka. I am a first-year BAJMC
+            (Bachelor of Arts in Journalism and Mass Communication)
+            student at K.R. Mangalam University (KRMU).
+            I am a creative person who loves exploring new ideas,
+            learning new skills and expressing myself through creativity.
+            I am interested in visual communication, graphic design
+            and artistic work. My dream is to develop my creative
+            skills and become a professional graphic designer
+            in the future.
+        </p>
+
+        <a href="#hobbies" class="home-btn">
+            Explore My Creative World ✨
+        </a>
+
+    </div>
+</section>
+
+<!-- HOBBIES SECTION -->
+<section id="hobbies">
+
+    <h2 class="section-title">My Hobbies 🌷</h2>
+
+    <p class="section-subtitle">
+        Things I love doing in my free time!
+    </p>
+
+    <div class="card-container">
+
+        <div class="card hobby-card">
+            <div class="card-icon">💻</div>
+
+            <h3>Learning Graphic Design</h3>
+
+            <p>
+                I enjoy exploring graphic design, experimenting
+                with colours, typography, layouts and creative
+                concepts. I want to learn professional design
+                tools and create attractive visual content.
+            </p>
+        </div>
+
+        <div class="card hobby-card">
+            <div class="card-icon">🎨</div>
+
+            <h3>Creative Designing</h3>
+
+            <p>
+                I enjoy creating new designs, exploring different
+                styles and turning my ideas into creative visual
+                presentations. Designing gives me an opportunity
+                to express my imagination.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- INTERESTS SECTION -->
+<section id="interests">
+
+    <h2 class="section-title">My Interests 🌼</h2>
+
+    <p class="section-subtitle">
+        Exploring art, imagination and creativity!
+    </p>
+
+    <div class="card-container">
+
+        <div class="card interest-card">
+            <div class="card-icon">🖌️</div>
+
+            <h3>Painting</h3>
+
+            <p>
+                Painting allows me to express my imagination,
+                emotions and thoughts through colours and artwork.
+                I enjoy experimenting with different colours,
+                styles and artistic ideas.
+            </p>
+        </div>
+
+        <div class="card interest-card">
+            <div class="card-icon">🌈</div>
+
+            <h3>Art and Creativity</h3>
+
+            <p>
+                I love exploring different forms of art and visual
+                creativity. Art gives me a way to express my feelings
+                and thoughts without always using words. It helps
+                me explore my imagination and develop my artistic skills.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+
+    <h2 class="section-title">Let's Connect! 💌</h2>
+
+    <p class="section-subtitle">
+        Thank you for visiting my creative space!
+        Feel free to connect with me, share your thoughts
+        or send me a message. I would love to hear from you.
+    </p>
+
+    <div class="contact-container">
+
+        <!-- CONTACT INFORMATION -->
+        <div class="contact-info">
+
+            <h3>Get in Touch 🌸</h3>
+
+            <p>
+                <strong>👤 Name:</strong><br>
+                Anushka
+            </p>
+
+            <p>
+                <strong>📞 Phone:</strong><br>
+                <a href="tel:9319022294">
+                    9319022294
+                </a>
+            </p>
+
+            <p>
+                <strong>📧 Email:</strong><br>
+                <a href="mailto:anushka9650449@gmail.com">
+                    anushka9650449@gmail.com
+                </a>
+            </p>
+
+            <p>
+                ✨ Let's share ideas and make something creative together!
+            </p>
+
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="contact-form">
+
+            <h3>Send Me a Message 💜</h3>
+
+            <form id="contactForm">
+
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                    minlength="2"
+                >
+
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+                <label for="phone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    pattern="[0-9]{10}"
+                    title="Please enter a 10-digit phone number"
+                    required
+                >
+
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                    minlength="5"
+                ></textarea>
+
+                <button type="submit" class="submit-btn">
+                    Send Message 💌
+                </button>
+
+                <p id="formMessage" role="status" aria-live="polite"></p>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Made with 💜 and Creativity by Anushka</p>
+    <p>© 2026 Anushka's Creative Corner. All Rights Reserved.</p>
+    <p>Dream Big • Stay Creative • Keep Designing ✨</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const formMessage = document.getElementById("formMessage");
+
+    // Basic form validation
+    if (name.length < 2) {
+        formMessage.style.color = "#c45c75";
+        formMessage.textContent = "Please enter your full name.";
+        return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        formMessage.style.color = "#c45c75";
+        formMessage.textContent = "Please enter a valid email address.";
+        return;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+        formMessage.style.color = "#c45c75";
+        formMessage.textContent = "Please enter a valid 10-digit phone number.";
+        return;
+    }
+
+    if (message.length < 5) {
+        formMessage.style.color = "#c45c75";
+        formMessage.textContent = "Please write a longer message.";
+        return;
+    }
+
+    // Static form confirmation
+    formMessage.style.color = "#57876b";
+    formMessage.textContent =
+        "Thank you, " + name + "! Your message has been validated successfully. 💜";
+
+    contactForm.reset();
+
+});
+
+</script>
+
+</body>
+</html>
